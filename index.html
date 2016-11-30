@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <br />
+        <br />
+
+        <canvas id="chart"></canvas>
+        <script src="src/drawer.js"></script>
+        <script>
+
+            function add(a, b) {
+             return a + b.val;
+            }
+
+            var data = [{
+                val: 200,
+                color: 'red',
+            },
+            {
+                val: 458,
+                color: 'green',
+            },
+            {
+                val: 300,
+                color: 'blue',
+            }];
+            var canvas = document.getElementById('chart');
+            var offsetX = canvas.offsetLeft;
+            var offsetY = canvas.offsetTop;
+            var arcs = strokeCircleGraph(canvas, data);
+            var ctx = canvas.getContext('2d')
+            canvas.addEventListener("mousemove",function(e) {
+                 handleMouseMove(e, arcs, offsetX, offsetY, ctx);
+            }, false);
+        </script>
+    </body>
+</html>
